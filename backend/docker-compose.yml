@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: pageant_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: pageant_user
+      POSTGRES_PASSWORD: pageant_password
+      POSTGRES_DB: pageant_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
